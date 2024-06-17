@@ -1,0 +1,1047 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: .3s ease;
+}
+
+:root{
+    --primaryColor: #b30c00;
+    --primaryHoverColor: #f58ca6;
+    --textColor: rgb(16, 5, 40);
+    --greyText: rgb(150, 150, 150);
+    --whiteColor: hsl(0, 0%, 100%);
+    --greyColor: hsl(0, 0%, 96%);
+    --bgColor:   rgb(249, 247, 253);
+    --successColor: rgb(205, 237, 207);
+    --failureColor: rgb(255, 0, 0);
+    --footerBg: hsl(6, 91%, 95%);
+
+    --headerHeight: 3.5rem;
+    --biggestFont: 2.5rem;
+    --normalFont: 1.5rem;
+    --smallFont: 1rem;
+    --smallestFont: 13px;
+    --borderRadius: .5rem;
+    --boxShadow: 0 2px 8px  rgba(202, 202, 202, 0.262);
+
+}
+
+// Reusable CSS ******************************************>
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li{
+  list-style: none; 
+  cursor: pointer; 
+}
+
+.icon{
+    font-size: var(--smallFont);
+    cursor: pointer;
+}
+
+.grid{
+    display: grid;
+    align-items: center;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.section{
+    padding: 4rem 0 2rem;
+}
+
+.container{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.btn{
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: .8rem 1rem;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    margin: auto;
+    background: var(--bgColor);
+    padding: 2rem;
+
+    .dashboard{
+        height: 100%;
+        width: 90%;
+        border-radius: 1rem;
+        display: flex;
+        column-gap: 2%;
+        align-items: center;
+        justify-content: center;
+        background:var(--footerBg);
+        padding: 2rem;
+
+        .sideMenu{
+          flex: 20%;
+          height: 100%;
+          width: 100%;
+          border-radius: 1rem;
+          box-shadow: var(--boxShadow);
+          .divContainer{
+              padding: 1.5rem;
+              .adminDiv{
+                  padding-bottom: 2rem;
+                  text-align: center;
+                  .imgDiv{
+                      height: 100px;
+                      width: 100px;
+                      margin: auto;
+                      overflow: hidden;
+                      border-radius: 1rem;
+                      border: 10px solid var(--whiteColor);
+                      box-shadow: var(--boxShadow);
+                      img{
+                          object-fit: cover; 
+                      }
+                  }
+
+                  small{
+                      color: var(--textColor);
+                      opacity: .5;
+                  }
+                  .adminName{
+                      font-size: var(--smallestFont);
+                      font-weight: 900;
+                      display: block;
+                      padding: .3rem 0 1rem;
+                      color: var(--textColor);
+                      
+                  }
+
+                  .logOut{
+                    padding: .5rem 1rem;
+                    background: var(--primaryHoverColor);
+                    border-radius: 3rem;
+                    margin-top: 1rem;
+                    cursor: pointer;
+                    font-style: normal;
+
+                    .icon{
+                      margin-right: .5rem;  
+                    }
+
+                   a{
+                    color: var(--whiteColor);
+                    font-style: normal;
+                   }
+
+                   &:hover{
+                    background: var(--whiteColor);
+                    a{
+                        color: var(--primaryHoverColor);
+                    }
+                   }
+                  }
+
+                 
+              }
+
+              .menuDiv{
+                  .menuList{
+                      row-gap: .5rem;
+                      .listItem{
+                          padding: .5rem;
+                          border-radius: 3rem;
+                          
+                          
+                          &:hover{
+                              background: var(--primaryHoverColor);
+                              .navLink
+                              {
+                               color: var(--whiteColor);
+                              }
+                              .navLink .icon{
+                                  background: none;
+                              }
+                          }
+                          .navLink{
+                              color: rgb(127, 126, 126);
+                              column-gap: .5rem;
+                              font-size: var(--smallFont);
+                              .icon{
+                                 background: var(--primaryColor);
+                                 color: var(--whiteColor);
+                                 border-radius: .5rem;
+                                 padding: .5rem .6rem
+                              }
+                          } 
+                      }
+                      .active{
+                            background: var(--primaryHoverColor);
+                            .navLink
+                            {
+                             color: var(--whiteColor);
+                            }
+                            .navLink .icon{
+                                background: none;
+                            }
+                      }
+                  }
+              }
+          }
+        }
+
+        .dashboardBody{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+            flex: 78%;
+            background: rgb(255, 255, 255);
+            height: 100%;
+            width: 100%;
+            border-radius: 1rem;
+            overflow-y: auto;
+            .title{
+                width: 100%;
+                font-weight: 700;
+                color: var(--textColor);
+                padding: .5rem 0;
+                font-size: var(--smallFont);
+                justify-content: space-between;
+                padding-right: .2rem;
+
+                .icon{
+                    color: var(--greyText);
+                    opacity: .7;
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    background: rgb(74, 200, 74);
+                    color: var(--whiteColor);
+                    padding: .5rem .6rem;
+                    &:hover{
+                        
+                        padding: .4rem .5rem;
+                    }
+                   
+                  }
+                
+            }
+
+            .topSection{
+                position: relative;
+                width: 100%;
+                justify-content: space-between;
+                .title{
+                    max-width: 300px;
+                    font-weight: 900;
+                    font-size: var(--normalFont);
+                }
+
+                .notifications{
+                    background: var(--primaryHoverColor);
+                    padding: .5rem .6rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                    
+
+                   
+                    .icon{
+                        color: var(--whiteColor);
+                        font-size: var(--normalFont);
+                    }
+                  
+                    &:hover{
+                        background: var(--whiteColor);
+                        .icon{
+                            color: var(--primaryHoverColor);
+                        }
+                        
+                    }
+
+                    
+                    
+                }
+
+                .notificationsContainer{
+                    position: absolute;
+                    background: var(--whiteColor);
+                    right: -100rem;
+                    top: 5rem;
+                    padding: 3rem 1rem 1rem;
+                    border-radius: 1rem;
+                    box-shadow: 0  2px 4px  rgb(200, 200, 200);
+                    row-gap: 1rem;
+                    max-height: 400px;
+                    overflow: auto;
+                    z-index: 1000;
+                    .notf{
+                        font-size: var(--smallestFont);
+                        color: var(--greyText);
+                        justify-content: center;
+                        border-bottom: 1px solid rgb(241, 241, 241);
+                        padding-bottom: .5rem ;
+                        column-gap: .5rem;
+
+                      img{
+                          height: 30px;
+                          width: 30px;
+                        
+                      }
+
+                      .icon{
+                        color: var(--primaryColor);
+                        font-size: var(--normalFont);
+                        font-weight: 900;
+                    }
+                    
+                   
+                    }
+
+                    #closeBtn{
+                        position: absolute;
+                        top: 10px;
+                        right:20px;
+                        .icon{
+                            font-size: var(--normalFont);
+                            color: var(--primaryHoverColor);
+                        }
+                    }
+                }
+                .toggleNotificationPage{
+                    right: 0;
+                }
+            }
+
+            .bodyContainer{
+                width: 100%;
+                justify-content: center;
+                flex-direction: column; 
+                margin-top: 1rem;
+              
+                .mainSection{
+                    width: 100%;
+                    overflow: hidden;
+                    justify-content: space-between;
+               
+
+                    .optionMenu{
+                        justify-content: left;
+                        column-gap: 1rem;
+                        .option{
+                            justify-content: center;             
+                            align-items: initial; 
+                            padding-top: 1rem;
+                            height: 100px;
+                            width: 60px;
+                            background: var(--greyColor);
+                            border-radius: 3rem;
+                            cursor: pointer;
+                            img{
+                                width: 30px;
+                                margin: auto;
+                            }
+
+                            &:hover{
+                                background: var(--whiteColor);
+                                box-shadow: 0 2px 4px rgb(231, 231, 231);
+                            }
+
+                        }
+
+                        
+
+
+                    }
+
+                    .salesDiv{
+                        padding: 1rem 2rem;
+                        background: var(--primaryHoverColor);
+                        color: var(--whiteColor);
+                        border-radius: 1rem;
+                        .flex{
+                           column-gap: 1rem;
+                           padding-bottom: .5rem;
+                           font-size: var(--smallFont);
+                        }
+                        h1{
+                            font-weight: 900;
+                            
+                        }
+                    }
+                        
+                }
+
+                .bottomSection{
+                    width: 100%;
+                    column-gap: 2%;
+                    justify-content: space-between;
+                    overflow: hidden;
+
+                    .popularItems{
+                        flex: 78%;
+                          margin-top: .5rem;
+                          .itemsContainer{
+                              margin-top: 3rem;
+                              justify-content: center;
+                              column-gap: 1rem;
+                              .singleItem{
+                                  position: relative;
+                                  width: 200px;
+                                  padding: 1rem;
+                                  border: 2px solid var(--greyColor);
+                                  border-radius: 1.5rem;
+                                  &:hover{
+                                      background: var(--greyColor);
+                                  }
+
+                                  .imgDiv{
+                                      position: absolute;
+                                    height: 100px;
+                                    width: 100px;
+                                    overflow: hidden;
+                                    border-radius: 50%;
+                                    top: -35%;
+                                    right: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%);
+                                    img{
+                                        width: 100px;
+                                        height: auto;
+                                        object-fit: cover;
+                                    }
+                                  }
+                                  .itemInfo{
+                                      padding-top: 2.5rem;
+                                    .itemName{
+                                        font-weight: 700;
+                                        color: var(--textColor);
+                                        display: block;
+                                        padding-bottom: .5rem;
+                                        font-size: var(--smallFont);
+                                    }
+                                    .desc{
+                                        font-size: var(--smallestFont);
+                                        color: var(--greyText);
+                                        max-width: 150px;
+                                    } 
+  
+                                    .itemBottom{
+                                        padding: 1rem .5rem .2rem ;
+                                        justify-content: space-between;
+  
+                                        .price{
+                                            font-weight: 700;
+                                        }
+  
+                                        .icon{
+                                            color: var(--greyText);
+                                            opacity: .7;
+                                            height: 10px;
+                                            width: 10px;
+                                            border-radius: 50%;
+                                            background: var(--textColor);
+                                            color: var(--whiteColor);
+                                            padding: .5rem .6rem;
+                                            &:hover{
+                                                padding: .4rem .5rem;
+                                             
+                                            }
+                                          }
+  
+                                      } 
+                                  }
+  
+                              }
+                          }
+  
+                    }
+
+                    .liveOrdersSection{
+                        flex: 22%;  
+                        margin-top: .5rem; 
+                        
+                        .ordersDiv{
+                            row-gap: .2rem;
+                            .order{
+                                justify-content: space-between;
+                                column-gap: .5rem;
+                                padding: .5rem;
+                                // background: var(--greyColor);
+                                border-radius: 3px;
+                                img{
+                                    width: 30px;
+                                    height: auto;
+                                }
+
+                                .itemInfor{
+                                      padding: 0 .5rem;
+                                      span{
+                                          display: block;
+                                          font-size: var(--smallestFont);
+                                          color: var(--greyText);
+
+                                      }
+                                     .itemName{
+                                         color: var(--textColor);
+                                         font-weight: 500;
+                                     }
+                                }
+                              
+                            
+                            }
+                        }
+                    }
+                }
+
+                
+            }
+
+            .menuContainer{
+                overflow: auto;
+                .allItems{
+                      margin-top: .5rem;
+                      .itemsContainer{
+                          margin-top: 4rem;
+                          justify-content: center;
+                          row-gap: 4rem;
+                          column-gap: 1rem;
+                          grid-template-columns: repeat(4,1fr);
+                          padding: 0 1rem;
+                          .singleItem{
+                              position: relative;
+                              padding: 1rem;
+                              border: 2px solid var(--greyColor);
+                              border-radius: 1.5rem;
+                              &:hover{
+                                  background: var(--greyColor);
+                              }
+
+                              .imgDiv{
+                                position: absolute;
+                              height: 100px;
+                              width: 100px;
+                              overflow: hidden;
+                              border-radius: 50%;
+                              top: -25%;
+                              right: 50%;
+                              left: 50%;
+                              transform: translate(-50%);
+                              img{
+                                  width: 100px;
+                                  height: auto;
+                                  object-fit: cover;
+                              }
+                            }
+
+                              .itemInfo{
+                                  padding-top: 2.5rem;
+                                .itemName{
+                                    font-weight: 700;
+                                    color: var(--textColor);
+                                    display: block;
+                                    padding-bottom: .5rem;
+                                    font-size: var(--smallFont);
+                                }
+                                .desc{
+                                    font-size: var(--smallestFont);
+                                    color: var(--greyText);
+                                    max-width: 150px;
+                                } 
+
+                                .itemBottom{
+                                    padding: 1rem .5rem .2rem ;
+                                    justify-content: space-between;
+
+                                    .price{
+                                        font-weight: 700;
+                                    }
+
+                                    .icon{
+                                        color: var(--greyText);
+                                        opacity: .7;
+                                        height: 8px;
+                                        width: 8px;
+                                        border-radius: 50%;
+                                        background: var(--textColor);
+                                        color: var(--whiteColor);
+                                        padding: .4rem .5rem;
+                                        
+                                        &:hover{
+                                            padding: .3rem .4rem;
+                                         
+                                        }
+                                      }
+
+                                      .deleteIcon{
+                                        background: var(--primaryColor);
+                                    &:hover{
+                                      background: var(--primaryHoverColor);
+                                    }
+                                    }
+
+                                  } 
+                              }
+
+                          }
+                      }
+
+                }
+            }
+
+            .adminContainer{
+            overflow: auto;
+            
+                .allAdmins{
+                    margin-top: .5rem;
+                    .adminContainer{
+                        padding: 1rem 0;
+                        table{
+                            width: 100%;
+                            // border-spacing: none;
+                            border-collapse: collapse;
+                        
+                            tr{
+                               padding: 2rem 0;
+                               text-align: center;
+
+                               th, td{
+                                   padding: 10px;
+                                   text-align: center;
+                                   color: var(--textColor);
+                               }
+                              
+
+                               .imageDiv{
+                                   height: 35px;
+                                   width: 35px;
+                                   border-radius: 50%;
+                                   overflow: hidden;
+                                   img{
+                                       width: 100%;
+                                       height: auto;
+                                       object-fit: cover;
+
+                                   }
+                               }
+
+                               
+                            }
+
+                            .tblHeader{
+                              background: var(--primaryHoverColor) ;
+                              th{
+                                  color: var(--whiteColor);
+                              }
+
+                            }
+                            th:first-child {
+                                border-top-left-radius: 3rem;
+                                border-bottom-left-radius: 3rem;
+                              }
+                              th:last-child {
+                                border-top-right-radius: 3rem;
+                                border-bottom-right-radius: 3rem;
+                              }
+                            td:first-child {
+                                border-top-left-radius: 3rem;
+                                border-bottom-left-radius: 3rem;
+                                font-weight: 700;
+                              }
+                              td:last-child {
+                                border-top-right-radius: 3rem;
+                                border-bottom-right-radius: 3rem;
+                              }
+
+                            .tblRow{
+                               background: var(--greyColor);
+                               border-radius: 3rem;
+                               
+                               .icon{
+                                color: var(--greyText);
+                                opacity: .7;
+                                height: 10px;
+                                width: 10px;
+                                border-radius: 50%;
+                                background: var(--textColor);
+                                color: var(--whiteColor);
+                                padding: .5rem .6rem;
+                               
+                              }
+
+                              .editIcon:hover{
+                                background: rgb(105, 219, 105);
+                              }
+                              .deleteIcon{
+                                  background: var(--primaryColor);
+                              &:hover{
+                                background: var(--primaryHoverColor);
+                              }
+                              }
+
+                              &:nth-child(odd){
+                                background: rgb(227, 227, 227);
+                              }
+                            }
+
+                            .orderRow td{
+                                 padding: 1rem 0;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .orderDetails{
+                justify-content: space-between; 
+                gap: 5rem;
+                align-items: flex-start;
+                margin-top: 2rem;
+                overflow-y: auto;
+            
+                .cartDiv{
+                    flex-basis: 60%;
+                    margin-bottom: 1rem;
+                    .singleCart{
+                        padding: 1.5rem 0; 
+                        width: 100%;
+                        justify-content: space-between;
+                        color: var(--textColor);
+                        img{
+                         width: 50px;
+                        }
+                
+                        .foodDetails{
+                            flex: 1;
+                            margin-left: 1rem;
+                
+                            span{
+                                justify-content: space-between;    
+                            }
+                
+                            .name_closeIcon{
+                                padding-bottom: .5rem;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                
+                    .singleCart:not(:last-child){
+                        border-bottom: 1px solid var(--footerBg);
+                        
+                    }
+                }
+            
+                .amountDiv{
+                    flex-basis: 40%;
+                    display: grid;
+                    background: var(--footerBg);
+                    padding: 1rem;
+                    border-radius: var(--borderRadius);
+                    .cartList{
+                        justify-content: space-between;
+                        margin-top: .5rem;
+                    }
+            
+                    img{
+                        width: 30px;
+                        margin-left: .5rem;
+                    }
+            
+                    .updateOrderDiv{
+                        margin-top: 1rem;
+                        border-top: 1px solid var(--whiteColor);
+            
+                        input{
+                          width: 200px;
+                        }
+                    }
+            
+                    .updateOrderTitle{
+                        padding-top: 1rem;
+                        color: var(--textColor);
+                    }
+            
+                    .inputDiv{
+                        justify-content: space-between;
+                        padding: .2rem 0;
+            
+                        select{
+                            background: var(--thirdColor);
+                            outline: none;
+                            border: none;
+                            padding: 1rem;
+                        }
+            
+                        input{
+                            width: 150px;
+                            border-radius: 5px;
+                            padding: .4rem 1rem;
+                            text-align: right;
+                            border: 2px solid var(--secondaryColor);
+                        }
+                    }
+            
+                    .btn{
+                        margin-top: 1rem;
+                        padding-top: 1rem;
+                        border: 1px solid var(--secondaryColor);
+                        background: var(--primaryColor);
+                        color: var(--whiteColor);
+                        width: 100%;
+                        text-align: center;
+                        font-weight: 600;
+                        font-size: var(--normalSize);
+                        &:hover{
+                            background: var(--secondaryColor);
+                            color: var(--primaryColor);
+                            border: 1px solid var(--primaryColor);
+                        }
+                    }
+                } 
+            }
+
+            .customerDetails{
+                padding: 1rem;
+                border-radius:var(--borderRadius);
+                margin-bottom: 2rem;
+                gap: .2rem;
+
+                .heading{
+                    background: var(--footerBg);
+                    padding: 1rem ;
+                    border-radius: var(--borderRadius);
+                    font-weight: bold;
+                    color: var(--primaryColor);
+                }
+            
+                .singleDetail{
+                   width: 100%;
+                   justify-content: space-between;
+                   padding: 1rem;
+                   border-radius: var(--borderRadius);
+            
+                   .dTitle{
+                     font-weight: 600;
+                     color: --textColor;
+                     font-size: 14px;
+                   }
+            
+                   .detail{
+                    text-align: right;
+                    opacity: .7;
+                   }
+            
+                }
+            }
+
+            .settingsContainer{
+                width: 100%;
+
+                .fieldsContainer{
+                    width: 100%;
+                    justify-content:space-evenly;
+                    column-gap: 1rem;
+                    background: rgba(246, 246, 246, 0.482);
+                    padding: 1rem 0;
+                    border-radius: 1rem;
+                    align-items: initial;
+                }
+                .row {
+                    margin: 0.8rem 0;
+                    display: grid;
+                
+                    label {
+                      font-size: var(--smallFont);
+                      font-weight: 500;
+                      padding-bottom: 10px;
+                      color: var(--primaryHoverColor);
+                      small {
+                        margin-left: 1rem;
+                        color: var(--greyText);
+                      }
+                    }
+                    input,
+                    select, textarea {
+                      max-width: 400px;
+                      padding: 15px 25px;
+                      border-radius: 3rem;
+                      border: none;
+                      background: var(--greyColor);
+                      // background: var(--tdActiveColor);
+                      &:focus {
+                        outline: none;
+                      }
+                    }
+
+                    textarea{
+                        border-radius: 1rem;
+                        height: 100px;
+                    }
+
+                    ::placeholder{
+                        opacity: .3;
+                        font-size: var(--smallestFont);
+                    }
+                
+                   
+                
+                    #submitBtn {
+                      margin-top: 2rem;
+                      background: var(--primaryColor);
+                      color: var(--whiteColor);
+                      padding: 15px;
+                      font-size: 18px;
+                      cursor: pointer;
+                      &:hover {
+                        background: var(--primaryHoverColor);
+                      }
+                    }
+                  }
+            }
+
+            .success{
+                background: rgb(202, 237, 199);
+                padding: 10px 20px;
+                color: rgb(0, 76, 10);
+              border-radius: 5px;
+            }
+
+            .fail{
+                background: rgb(255, 200, 200);
+                padding: 10px 20px;
+                color: rgb(87, 85, 85);
+                border-radius: 5px;
+            }
+
+        }  
+   }
+
+}
+.receiptDiv{
+   gap: 1rem;
+   width: 400px;
+   height: auto;
+   text-align: center;
+   padding: 2rem;
+   border: 1px dashed black;
+   border-radius: 10px;
+
+   .flex{
+    justify-content: space-between;
+   }
+
+   .line{
+    border-top: 2px dashed black;
+   }
+
+   .businessName{
+        h4{
+            font-size: 20px;
+        }
+        small{
+            font-size: 18px;
+            padding: .2rem 0 .5rem;
+        }
+
+    }
+    
+    .title{
+        margin: 1rem 0;
+        h1{
+            padding: .5rem 0;
+        }
+    }
+
+    .cutomerDetails{
+        justify-content: start;
+        text-align: left;
+        gap: .2rem;
+    }
+
+    .cartItems{
+        padding: 1rem 0;
+        .singleItem{
+            padding: .3rem 0;
+
+            .itemName{
+               width: max-content;
+            }
+        }
+    }
+
+    .totalDiv{
+        padding: .5rem 0;
+        .total{
+            padding: .5rem 0;
+        }
+    }
+
+    .downloadBtn{
+        width: 100%;
+        border-radius: 10px;
+        background: var(--primaryColor);
+        color: var(--whiteColor);
+        font-size: 18px;
+        justify-content: center;
+        gap: 1rem;
+
+        .icon{
+            font-size: 18px;
+        }
+
+        &:hover{
+            background: var(--primaryHoverColor);
+        }
+    }
+
+}
+
+.prevIcon{
+   position: absolute;
+   height: 40px;
+   width: 40px;
+   background: var(--primaryColor);
+   top: 10px;
+   left: 10px;
+   border-radius: 5px;
+
+   .icon{
+    color: var(--whiteColor);
+    font-size: 40px;
+   }
+}
+
+::selection{
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+}
+
+::-webkit-scrollbar{
+    background: var(--whiteColor);
+    width: 3px;
+    margin-left: 1rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--primaryColor);
+    border-radius: 10px;
+}
